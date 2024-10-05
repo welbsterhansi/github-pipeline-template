@@ -10,5 +10,5 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout Code
-      uses: /templates/common/checkout@main
+    - name: Checkout
+      uses: ../actions/checkout.yaml@main
