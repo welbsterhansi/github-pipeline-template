@@ -1,5 +1,5 @@
 name: Docker CI
-description: Workflow para integração contínua com Docker.
+
 
 on:
   workflow_call:
