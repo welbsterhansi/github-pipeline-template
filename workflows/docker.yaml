@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: ./templates/common/checkout
+      uses: ../templates/common/checkout
