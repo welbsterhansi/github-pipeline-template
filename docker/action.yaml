@@ -8,7 +8,7 @@ inputs:
   paths:
     description: 'A comma-separated list of paths to checkout (e.g., dir1/*, dir2/file.txt). Defaults to all files.'
     required: false
-    default: '.*'
+    default: '.'
 
 runs:
   using: "composite"
