@@ -23,5 +23,5 @@ jobs:
     - name: Build
       uses: welbsterhansi/github-pipeline-template/docker@main
       with:
-        image_name: ${{ image_name }}
-        image_tag: ${{ image_tag }}
+        image_name: ${{ inputs.image_name }}
+        image_tag: ${{ inputs.image_tag }}
