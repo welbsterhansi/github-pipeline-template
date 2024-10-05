@@ -3,6 +3,17 @@ name: Docker Build
 
 on:
   workflow_call:
+    inputs:
+      image_name:
+        description: 'The name of the Docker image'
+        required: true
+        type: string
+      image_tag:
+        description: 'The tag for the Docker image'
+        required: false
+        default: 'latest'
+        type: string
+
 
 jobs:
   DockerBuild:
