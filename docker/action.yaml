@@ -26,6 +26,6 @@ runs:
     - name:
       shell: bash
       run: |
-        docker build -t=app:v1 .
+        docker build -t=${{ inputs.image_name}} .
         
 
