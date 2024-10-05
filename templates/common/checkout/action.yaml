@@ -1,0 +1,20 @@
+name: Checkout Repository
+
+description: |
+  This action checks out the code from the repository using the 
+  GitHub Actions 'actions/checkout' action with sparse checkout.
+
+inputs:
+  paths:
+    description: 'A comma-separated list of paths to checkout (e.g., dir1/*, dir2/file.txt). Defaults to all files.'
+    required: false
+    default: '.*' 
+
+runs:
+  using: "composite"
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+      with:
+        sparse-checkout: ${{ inputs.paths }}
+

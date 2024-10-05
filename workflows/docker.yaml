@@ -1,0 +1,14 @@
+name: Docker CI
+description: Workflow para integração contínua com Docker.
+
+on:
+  workflow_call:
+
+jobs:
+  checkout:
+    name: Checkout Code
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: ./templates/common/checkout
