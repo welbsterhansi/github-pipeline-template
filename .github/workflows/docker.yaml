@@ -6,9 +6,9 @@ on:
 
 jobs:
   checkout:
-    name: Checkout Code
+    name: Docker Build
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout
+    - name: Checkout code
       uses: welbsterhansi/github-pipeline-template/docker@main
