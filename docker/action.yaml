@@ -38,10 +38,5 @@ runs:
       ignore-unfixed: true
       vuln-type: 'os,library'
       severity: 'CRITICAL,HIGH'
-      output: 'trivy-results.sarif'
 
-  - name: Scan using Trivy and upload results to the GitHub Security tab
-    uses: github/codeql-action/upload-sarif@v2
-    with:
-      sarif_file: 'trivy-results.sarif'
 
