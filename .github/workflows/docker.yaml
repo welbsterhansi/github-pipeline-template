@@ -11,4 +11,4 @@ jobs:
 
     steps:
     - name: Checkout Code
-      uses: ../templates/common/checkout/action.yaml@main
+      uses: /templates/common/checkout/action.yaml@main
