@@ -21,6 +21,6 @@ runs:
     - name:
       shell: bash
       run: |
-        echo "Hello"
+        docker build -t=app:v1 .
         
 
