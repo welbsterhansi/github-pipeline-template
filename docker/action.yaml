@@ -24,10 +24,8 @@ runs:
     with:
       sparse-checkout: ${{ inputs.paths }}
       
-  - name: TruffleHog Enterprise scan
-    uses: trufflesecurity/TruffleHog-Enterprise-Github-Action@main
-    with:
-      args: --fail-verified ${{ github.event.repository.default_branch }} HEAD
+  - name: Secret Scanner
+    uses: secret-scanner/action@0.0.2
 
   - name: Build Docker image
     shell: bash
