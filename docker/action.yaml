@@ -24,15 +24,10 @@ runs:
     with:
       sparse-checkout: ${{ inputs.paths }}
 
-  - name: shell
-    shell: bash
-    run: |
-      pip install detect-secrets[gibberish]==1.2.0
-      detect-secrets scan > .secrets.baseline
-      detect-secrets audit .secrets.baseline  
-      
-  - name: Secret Scanner
-    uses: secret-scanner/action@0.0.2
+  - name: Secret Scanning
+    uses: trufflesecurity/trufflehog@main
+    with:
+      extra_args: --only-verified
 
   - name: Build Docker image
     shell: bash
