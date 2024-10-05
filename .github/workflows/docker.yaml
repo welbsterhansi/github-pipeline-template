@@ -10,10 +10,9 @@ on:
         type: string
       image_tag:
         description: 'The tag for the Docker image'
-        required: false
+        required: true
         default: 'latest'
         type: string
-
 
 jobs:
   DockerBuild:
