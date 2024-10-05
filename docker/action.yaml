@@ -29,7 +29,6 @@ runs:
     run: |
       docker build -t=${{ inputs.image_name }}:${{ inputs.image_tag }} .
 
-
   - name: Run Trivy vulnerability scanner
     uses: aquasecurity/trivy-action@0.20.0
     with:
@@ -39,4 +38,9 @@ runs:
       ignore-unfixed: true
       vuln-type: 'os,library'
       severity: 'CRITICAL,HIGH'
+
+  - name: Scan using Trivy and upload results to the GitHub Security tab
+    uses: github/codeql-action/upload-sarif@v2
+    with:
+      sarif_file: 'trivy-results.sarif'
 
