@@ -20,5 +20,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout 
+    - name: Build
       uses: welbsterhansi/github-pipeline-template/docker@main
+      with:
+        image_name: ${{ image_name }}
+        image_tag: ${{ image_tag }}
