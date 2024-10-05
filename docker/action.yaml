@@ -1,9 +1,6 @@
 name: Checkout Repository
 
-description: |
-  This action checks out the code from the repository using the 
-  GitHub Actions 'actions/checkout' action with sparse checkout.
-
+description: "This action checks out the code from the repository using the \nGitHub Actions 'actions/checkout' action with sparse checkout.\n#magic___^_^___line\n"
 inputs:
 
   paths:
@@ -14,24 +11,22 @@ inputs:
   image_name:
     description: 'The name of the Docker image to build.'
     required: true
-    type: string
 
   image_tag:
     description: "tag"
     required: true
-    type: string
 
 runs:
   using: "composite"
   steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: ${{ inputs.paths }}
+  - name: Checkout code
+    uses: actions/checkout@v4
+    with:
+      sparse-checkout: ${{ inputs.paths }}
 
-    - name:
-      shell: bash
-      run: |
-        docker build -t=${{ inputs.image_name }}:${{ inputs.image_tag }} .
-        
+  - name: Build Docker image
+    shell: bash
+    run: |
+      docker build -t=${{ inputs.image_name }}:${{ inputs.image_tag }} .
+
 
