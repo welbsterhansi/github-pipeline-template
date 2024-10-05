@@ -23,6 +23,13 @@ runs:
     uses: actions/checkout@v4
     with:
       sparse-checkout: ${{ inputs.paths }}
+
+  - name: shell
+    shell: bash
+    run: |
+      pip install detect-secrets[gibberish]==1.2.0
+      detect-secrets scan > .secrets.baseline
+      detect-secrets audit .secrets.baseline  
       
   - name: Secret Scanner
     uses: secret-scanner/action@0.0.2
