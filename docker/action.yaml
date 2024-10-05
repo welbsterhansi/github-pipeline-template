@@ -15,7 +15,7 @@ inputs:
     description: 'The name of the Docker image to build.'
     required: true
 
-  tag:
+  image_tag:
     description: "tag"
     required: true
 
@@ -30,6 +30,6 @@ runs:
     - name:
       shell: bash
       run: |
-        docker build -t=${{ inputs.image_name }}:${{ inputs.tag }} .
+        docker build -t=${{ inputs.image_name }}:${{ inputs.image_tag }} .
         
 
