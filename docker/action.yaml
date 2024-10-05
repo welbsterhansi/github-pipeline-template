@@ -24,14 +24,17 @@ runs:
     with:
       sparse-checkout: ${{ inputs.paths }}
 
-  - name: Secret Scanning
-    uses: trufflesecurity/trufflehog@main
-    with:
-      extra_args: --only-verified
-
   - name: Build Docker image
     shell: bash
     run: |
       docker build -t=${{ inputs.image_name }}:${{ inputs.image_tag }} .
+
+
+  - name: Run Trivy vulnerability scanner
+    uses: aquasecurity/trivy-action@0.20.0
+    with:
+       image-ref: '${{ inputs.image_name }}:${{ inputs.image_tag }'
+       format: 'sarif'
+       output: 'trivy-results.sarif'
 
 
